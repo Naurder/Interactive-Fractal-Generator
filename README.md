@@ -110,7 +110,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-The project was originally developed and tested on Windows. Other operating systems are not currently documented or verified.
+The project was originally developed and tested on Windows. Linux/macOS builds were not tested.
 
 ---
 
