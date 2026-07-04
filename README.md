@@ -1,34 +1,57 @@
 # Interactive Fractal Generator
 
-**Interactive desktop application for exploring fractal structures in real time.**
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![GUI](https://img.shields.io/badge/GUI-PyQt5-green)
+![Platform](https://img.shields.io/badge/Release-Windows%20x64-lightgrey)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-This project was originally built as an academic Python/PyQt5 application and later cleaned up for a public portfolio repository. It focuses on live manipulation of recursive fractal parameters instead of generating a single static image.
+**Interactive desktop application for generating, editing and exporting recursive fractals in real time.**
+
+The project focuses on live manipulation of fractal parameters instead of generating a single static image. It was originally built as an academic Python/PyQt5 application and later cleaned up for a portfolio-ready GitHub repository.
 
 ![Application preview](screenshots/preview.png)
 
-## What it does
-
-The application provides a GUI for experimenting with fractal geometry. Parameters can be changed while working with the program, making it easier to observe how recursive structures react to small changes.
-
 ## Features
 
-- Real-time fractal tree rendering.
-- Interactive controls for:
+### Interactive fractal editing
+
+- Real-time fractal tree generation.
+- Live control over recursive parameters:
   - branch angle,
   - recursion depth,
   - initial branch length,
-  - left and right branch length ratios,
-  - knot position,
+  - left and right branch length ratio,
+  - knot position ratio,
   - zoom,
-  - start rotation,
-  - brush thickness.
-- Rendering options:
-  - antialiasing,
-  - left/right branch distinction,
-  - line, rectangle, circle and triangle drawing modes,
-  - HSV-based color variation.
+  - starting rotation angle.
+- 9-point positioning system:
+  - top left,
+  - top center,
+  - top right,
+  - middle left,
+  - center,
+  - middle right,
+  - bottom left,
+  - bottom center,
+  - bottom right.
+
+### Rendering options
+
+- Antialiasing toggle.
+- Optional left/right branch distinction.
+- Configurable brush thickness.
+- Multiple drawing shapes:
+  - line,
+  - circle,
+  - rectangle,
+  - triangle.
+- HSV-based color control with an additional color slider.
+
+### Export
+
 - SVG export for generated fractals.
-- Example generated outputs included in the repository.
+- Vector output can be scaled to very large formats without losing quality.
+- Example generated outputs are included in the repository.
 
 ## Tech stack
 
@@ -42,8 +65,8 @@ The application provides a GUI for experimenting with fractal geometry. Paramete
 
 ```text
 Interactive-Fractal-Generator/
-├── main.py                  # Main GUI application
-├── FractalTreeClass.py       # Fractal rendering engine
+├── main.py
+├── FractalTreeClass.py
 ├── requirements.txt
 ├── README.md
 ├── LICENSE
@@ -55,7 +78,7 @@ Interactive-Fractal-Generator/
 
 ## Running from source
 
-> The project was originally developed on Windows with Python 3.10.
+> The project was originally developed and tested on Windows.
 
 Create and activate a virtual environment:
 
@@ -76,21 +99,23 @@ Run the application:
 python main.py
 ```
 
-## Windows build
+## Windows release
 
-A prebuilt Windows version can be published through GitHub Releases.
+A prebuilt Windows version is available in GitHub Releases.
 
-Recommended release asset name:
+Recommended asset name:
 
 ```text
 Interactive-Fractal-Generator-v1.0.0-windows-x64.zip
 ```
 
-The ZIP should contain the full PyInstaller `dist/main` directory, not only `main.exe`.
+The release ZIP should contain the full PyInstaller output directory, not only the `.exe` file, because the application needs its bundled libraries and runtime files.
 
 ## Notes
 
 This repository intentionally keeps the original implementation close to its initial form. The goal of this version is to preserve and present a completed project clearly, rather than rewrite it from scratch.
+
+The `Help/About` menu is currently a placeholder.
 
 ## License
 
