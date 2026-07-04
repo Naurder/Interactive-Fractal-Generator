@@ -1,13 +1,13 @@
 # Interactive Fractal Generator
 
-[![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square)](https://www.python.org/)
-[![PyQt5](https://img.shields.io/badge/GUI-PyQt5-green?style=flat-square)](https://pypi.org/project/PyQt5/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.x-blue)](https://www.python.org/)
+[![PyQt5](https://img.shields.io/badge/GUI-PyQt5-green)](https://pypi.org/project/PyQt5/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Download for Windows](https://img.shields.io/badge/Download-Windows%20x64-blue?style=for-the-badge)](../../releases/latest)
 
-Interactive desktop application for generating, exploring and exporting fractals in real time.
+Interactive desktop application for generating and exploring fractal trees in real time.
 
-Built with **Python** and **PyQt5**.
+Built with Python and PyQt5.
 
 ---
 
@@ -34,23 +34,21 @@ Additional generation example:
 ### Fractal generation
 
 - Interactive fractal tree generation.
-- Recursive depth control.
-- Branch angle control.
-- Left and right branch ratio controls.
-- Zoom and positioning controls.
 - Live parameter editing through a PyQt5 GUI.
+- Controls for recursive depth, branch angle, branch ratios, zoom and positioning.
+- Branches that would become smaller than a few visible pixels are skipped to reduce unnecessary rendering load.
 
 ### Rendering options
 
 - Antialiasing toggle.
 - Optional left/right branch distinction.
-- HSV-based color control.
 - Brush thickness control.
-- Multiple painter modes:
+- Painter modes:
   - line,
   - circle,
   - rectangle,
   - triangle.
+- Optional HSV-based color control.
 
 ### Positioning
 
@@ -63,9 +61,17 @@ The generated fractal can be positioned on a 9-point canvas grid:
 
 ### Export
 
-- Save generated fractals as **SVG**.
-- SVG output is vector-based, so it can be scaled to very large sizes without losing quality.
-- Useful for high-resolution previews, printing workflows and further editing in vector graphics tools.
+- Export generated fractals to SVG.
+- The SVG canvas is intentionally large, so very large fractals can fit inside the output.
+- When opening exported SVG files in a browser or vector editor, the fractal may not appear centered at first. Pan/zoom to locate it and crop or adjust the SVG manually if needed.
+
+---
+
+## Performance note
+
+The generation count has the biggest impact on performance. Higher values can create a very large number of branches and may freeze the application or slow down the computer.
+
+Start with a low generation count and increase it gradually while watching for lag. Around **10 generations** is a reasonable neutral starting point for exploration.
 
 ---
 
@@ -95,7 +101,7 @@ main.exe
 - SciPy
 - pandas
 
-### Setup
+### Setup on Windows
 
 ```bash
 python -m venv .venv
@@ -104,50 +110,40 @@ pip install -r requirements.txt
 python main.py
 ```
 
-On Linux/macOS, virtual environment activation is different:
-
-```bash
-source .venv/bin/activate
-```
-
-> The current source version is Windows-first because the original project uses Windows-specific console handling.
+The project was originally developed and tested on Windows. Other operating systems are not currently documented or verified.
 
 ---
 
 ## Project structure
 
+Simplified top-level structure:
+
 ```text
 Interactive-Fractal-Generator/
-├── main.py
-├── FractalTreeClass.py
-├── requirements.txt
-├── README.md
-├── LICENSE
-├── screenshots/
-│   ├── preview.png
-│   ├── demo.gif
-│   └── demo2.gif
+├── docs/
 ├── examples/
-└── docs/
-    └── whiteboard.jpg
+├── screenshots/
+├── FractalTreeClass.py
+├── main.py
+├── requirements.txt
+├── release-notes-v1.0.0.md
+├── README.md
+└── LICENSE
 ```
 
----
-
-## Technical notes
-
-The application is split into two main Python files:
+Main files:
 
 - `main.py` — application entry point and PyQt5 user interface.
 - `FractalTreeClass.py` — fractal tree rendering logic and drawing behavior.
-
-The original project was created as an interactive desktop tool for experimenting with fractal parameters visually instead of generating static images from a script.
+- `screenshots/` — preview images and GIF demos used in this README.
+- `examples/` — exported fractal examples.
+- `docs/` — archived development notes.
 
 ---
 
 ## Development notes
 
-Early design notes are archived in [`docs/whiteboard.jpg`](docs/whiteboard.jpg).
+Early design notes are archived in [`docs/development/whiteboard.jpg`](docs/development/whiteboard.jpg).
 
 ---
 
