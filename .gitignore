@@ -15,6 +15,13 @@ build/
 dist/
 *.spec
 
+# Local release bundles
+release/
+releases/
+.release/
+*.zip
+*.7z
+
 # Installer/package artifacts
 *.egg-info/
 .eggs/
@@ -36,6 +43,6 @@ htmlcov/
 Thumbs.db
 desktop.ini
 
-# Local exports / temporary files
+# Local temporary files
 *.tmp
 *.bak

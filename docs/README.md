@@ -1,10 +1,17 @@
 # Documentation
 
-This directory can contain archived design notes, original project documentation and development screenshots.
+This folder is for archived project materials and development notes.
 
-Suggested files:
+Suggested structure:
 
 ```text
-docs/development/whiteboard.jpg
-docs/original-project-proposal.png
+docs/
+├── README.md
+├── release-checklist.md
+└── development/
+    ├── whiteboard.jpg
+    ├── main-class-documentation.png
+    └── fractal-tree-class-documentation.png
 ```
+
+Keep documentation here if it helps explain the project history. Do not make the main README look like an academic assignment.
