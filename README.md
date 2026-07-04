@@ -1,65 +1,118 @@
 # Interactive Fractal Generator
 
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![GUI](https://img.shields.io/badge/GUI-PyQt5-green)
-![Platform](https://img.shields.io/badge/Release-Windows%20x64-lightgrey)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+[![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square)](https://www.python.org/)
+[![PyQt5](https://img.shields.io/badge/GUI-PyQt5-green?style=flat-square)](https://pypi.org/project/PyQt5/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+[![Download for Windows](https://img.shields.io/badge/Download-Windows%20x64-blue?style=for-the-badge)](../../releases/latest)
 
-**Interactive desktop application for generating, editing and exporting recursive fractals in real time.**
+Interactive desktop application for generating, exploring and exporting fractals in real time.
 
-The project focuses on live manipulation of fractal parameters instead of generating a single static image. It was originally built as an academic Python/PyQt5 application and later cleaned up for a portfolio-ready GitHub repository.
+Built with **Python** and **PyQt5**.
 
-![Application preview](screenshots/preview.png)
+---
+
+## Preview
+
+![Interactive Fractal Generator preview](screenshots/preview.png)
+
+---
+
+## Demo
+
+Real-time parameter editing:
+
+![Interactive Fractal Generator demo](screenshots/demo.gif)
+
+Additional generation example:
+
+![Interactive Fractal Generator demo 2](screenshots/demo2.gif)
+
+---
 
 ## Features
 
-### Interactive fractal editing
+### Fractal generation
 
-- Real-time fractal tree generation.
-- Live control over recursive parameters:
-  - branch angle,
-  - recursion depth,
-  - initial branch length,
-  - left and right branch length ratio,
-  - knot position ratio,
-  - zoom,
-  - starting rotation angle.
-- 9-point positioning system:
-  - top left,
-  - top center,
-  - top right,
-  - middle left,
-  - center,
-  - middle right,
-  - bottom left,
-  - bottom center,
-  - bottom right.
+- Interactive fractal tree generation.
+- Recursive depth control.
+- Branch angle control.
+- Left and right branch ratio controls.
+- Zoom and positioning controls.
+- Live parameter editing through a PyQt5 GUI.
 
 ### Rendering options
 
 - Antialiasing toggle.
 - Optional left/right branch distinction.
-- Configurable brush thickness.
-- Multiple drawing shapes:
+- HSV-based color control.
+- Brush thickness control.
+- Multiple painter modes:
   - line,
   - circle,
   - rectangle,
   - triangle.
-- HSV-based color control with an additional color slider.
+
+### Positioning
+
+The generated fractal can be positioned on a 9-point canvas grid:
+
+| Top Left | Top Center | Top Right |
+|---|---|---|
+| Middle Left | Center | Middle Right |
+| Bottom Left | Bottom Center | Bottom Right |
 
 ### Export
 
-- SVG export for generated fractals.
-- Vector output can be scaled to very large formats without losing quality.
-- Example generated outputs are included in the repository.
+- Save generated fractals as **SVG**.
+- SVG output is vector-based, so it can be scaled to very large sizes without losing quality.
+- Useful for high-resolution previews, printing workflows and further editing in vector graphics tools.
 
-## Tech stack
+---
 
-- Python
+## Download
+
+The latest packaged Windows build is available on the [Releases](../../releases/latest) page.
+
+1. Download the latest `windows-x64.zip` archive.
+2. Extract the full archive.
+3. Run:
+
+```text
+main.exe
+```
+
+> Do not extract only `main.exe`. The bundled dependencies from the ZIP archive are required.
+
+---
+
+## Run from source
+
+### Requirements
+
+- Python 3.x
 - PyQt5
 - NumPy
 - SciPy
 - pandas
+
+### Setup
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python main.py
+```
+
+On Linux/macOS, virtual environment activation is different:
+
+```bash
+source .venv/bin/activate
+```
+
+> The current source version is Windows-first because the original project uses Windows-specific console handling.
+
+---
 
 ## Project structure
 
@@ -71,52 +124,33 @@ Interactive-Fractal-Generator/
 ├── README.md
 ├── LICENSE
 ├── screenshots/
-│   └── preview.png
+│   ├── preview.png
+│   ├── demo.gif
+│   └── demo2.gif
 ├── examples/
 └── docs/
+    └── whiteboard.jpg
 ```
 
-## Running from source
+---
 
-> The project was originally developed and tested on Windows.
+## Technical notes
 
-Create and activate a virtual environment:
+The application is split into two main Python files:
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
+- `main.py` — application entry point and PyQt5 user interface.
+- `FractalTreeClass.py` — fractal tree rendering logic and drawing behavior.
 
-Install dependencies:
+The original project was created as an interactive desktop tool for experimenting with fractal parameters visually instead of generating static images from a script.
 
-```bash
-pip install -r requirements.txt
-```
+---
 
-Run the application:
+## Development notes
 
-```bash
-python main.py
-```
+Early design notes are archived in [`docs/whiteboard.jpg`](docs/whiteboard.jpg).
 
-## Windows release
-
-A prebuilt Windows version is available in GitHub Releases.
-
-Recommended asset name:
-
-```text
-Interactive-Fractal-Generator-v1.0.0-windows-x64.zip
-```
-
-The release ZIP should contain the full PyInstaller output directory, not only the `.exe` file, because the application needs its bundled libraries and runtime files.
-
-## Notes
-
-This repository intentionally keeps the original implementation close to its initial form. The goal of this version is to preserve and present a completed project clearly, rather than rewrite it from scratch.
-
-The `Help/About` menu is currently a placeholder.
+---
 
 ## License
 
-MIT License.
+This project is licensed under the [MIT License](LICENSE).
